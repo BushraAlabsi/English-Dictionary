@@ -11,12 +11,12 @@ constructor(){
 		definition:''
 	}
 }
+
 getDefinition(){
  $.ajax({
 		method: 'GET',
 		url: `/definition/${this.state.word}`,
 		success:  (data) => {
-			alert("added successfully!")
 			console.log("success",data);
 			this.setState({definition: data});
 		}
@@ -26,20 +26,28 @@ getDefinition(){
 
 render(){
 return (
-<div>
-	<input 
-	type="text" 
-	value={this.state.word} 
-	onChange={ (e)=> {this.setState({word:e.target.value}) } }
-	placeholder="Type an English word"
-	/> <br/>
-<button onClick= {() => {this.getDefinition()}}>Definition</button>
-<br/>
-	<input 
-	type="text" 
-	value={this.state.definition}
-	/>
-</div>
+<div className="container" >
+	<h4>Dictionary</h4>
+	<span>
+		<button className= "word">Word</button>
+		<input 
+		type="text" 
+		value={this.state.word} 
+		onChange={ (e)=> {this.setState({word:e.target.value}) } }
+		placeholder="Type an English word"
+		/> <br/>
+
+		<br/>
+		<input 
+		className="def"
+		type="text" 
+		value={this.state.definition}
+		/>
+	</span>
+	<span className= "right">
+		<button onClick= {() => {this.getDefinition()}}>Definition</button>
+	</span>
+</div> 
 		
 	)	
 }

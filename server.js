@@ -32,16 +32,11 @@ var dict = new Dictionary(app_id,app_key);
 dict.find(word,function(error,data){ if(error) return console.log(error);
 
 
- const def = data.results[0].lexicalEntries[0].entries[0].senses[0].definitions[0]
- console.log(def);
+ const def = data.results[0].lexicalEntries[0].entries[0].senses[0].definitions[0];
  res.send(def);
 
   });
 })
-
-// app.get('/*', function (req, res) {
-// res.render("index");	
-// });
 
 const port = process.env.PORT || 3000;
 

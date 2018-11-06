@@ -95,7 +95,6 @@
 					method: 'GET',
 					url: '/definition/' + this.state.word,
 					success: function success(data) {
-						alert("added successfully!");
 						console.log("success", data);
 						_this2.setState({ definition: data });
 					}
@@ -108,29 +107,48 @@
 	
 				return _react2.default.createElement(
 					'div',
-					null,
-					_react2.default.createElement('input', {
-						type: 'text',
-						value: this.state.word,
-						onChange: function onChange(e) {
-							_this3.setState({ word: e.target.value });
-						},
-						placeholder: 'Type an English word'
-					}),
-					' ',
-					_react2.default.createElement('br', null),
+					{ className: 'container' },
 					_react2.default.createElement(
-						'button',
-						{ onClick: function onClick() {
-								_this3.getDefinition();
-							} },
-						'Definition'
+						'h4',
+						null,
+						'Dictionary'
 					),
-					_react2.default.createElement('br', null),
-					_react2.default.createElement('input', {
-						type: 'text',
-						value: this.state.definition
-					})
+					_react2.default.createElement(
+						'span',
+						null,
+						_react2.default.createElement(
+							'button',
+							{ className: 'word' },
+							'Word'
+						),
+						_react2.default.createElement('input', {
+							type: 'text',
+							value: this.state.word,
+							onChange: function onChange(e) {
+								_this3.setState({ word: e.target.value });
+							},
+							placeholder: 'Type an English word'
+						}),
+						' ',
+						_react2.default.createElement('br', null),
+						_react2.default.createElement('br', null),
+						_react2.default.createElement('input', {
+							className: 'def',
+							type: 'text',
+							value: this.state.definition
+						})
+					),
+					_react2.default.createElement(
+						'span',
+						{ className: 'right' },
+						_react2.default.createElement(
+							'button',
+							{ onClick: function onClick() {
+									_this3.getDefinition();
+								} },
+							'Definition'
+						)
+					)
 				);
 			}
 		}]);
